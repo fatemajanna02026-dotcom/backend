@@ -273,16 +273,15 @@ let WA_CONNECTED = false;
 try {
 client = new Client({
   authStrategy: new LocalAuth(),
-  puppeteer: {
+puppeteer: {
     headless: true,
-    // ডকার ইমেজের ভেতরে ক্রোম ঠিক এই লোকেশনেই থাকে
-    executablePath: '/usr/bin/google-chrome-stable', 
+    // এই পাথটি ডকার ইমেজের জন্য ফিক্সড
+    executablePath: '/usr/bin/google-chrome-stable',
     args: [
       "--no-sandbox",
       "--disable-setuid-sandbox",
       "--disable-dev-shm-usage",
-      "--disable-gpu",
-      "--no-zygote"
+      "--disable-gpu"
     ],
   },
 });
