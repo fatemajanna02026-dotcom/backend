@@ -283,8 +283,8 @@ client = new Client({
       "--single-process",
       "--no-zygote"
     ],
-    // রেলওয়েতে যদি ক্রোমিয়াম পাথ সেট করতে হয়
-    executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome' 
+    // এখানে পরিবর্তন করা হয়েছে:
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/chromium'
   },
 });
 
