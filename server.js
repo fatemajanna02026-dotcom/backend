@@ -271,10 +271,22 @@ let QR_CODE = "";
 let WA_CONNECTED = false;
 
 try {
-  client = new Client({
-    authStrategy: new LocalAuth(),
-    puppeteer: { headless: true, args: ["--no-sandbox"] },
-  });
+client = new Client({
+  authStrategy: new LocalAuth(),
+  puppeteer: {
+    headless: true,
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-gpu",
+      "--single-process",
+      "--no-zygote"
+    ],
+    // রেলওয়েতে যদি ক্রোমিয়াম পাথ সেট করতে হয়
+    executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome' 
+  },
+});
 
   client.on("qr", (qr) => {
     QR_CODE = qr;
