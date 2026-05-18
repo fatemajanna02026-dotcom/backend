@@ -275,14 +275,13 @@ client = new Client({
   authStrategy: new LocalAuth(),
   puppeteer: {
     headless: true,
-    // এটি আপডেট করুন:
-    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/google-chrome-stable' || '/usr/bin/chromium',
+    // ডকার ইমেজের ভেতরে ক্রোম ঠিক এই লোকেশনেই থাকে
+    executablePath: '/usr/bin/google-chrome-stable', 
     args: [
       "--no-sandbox",
       "--disable-setuid-sandbox",
       "--disable-dev-shm-usage",
       "--disable-gpu",
-      "--single-process",
       "--no-zygote"
     ],
   },
