@@ -275,6 +275,8 @@ client = new Client({
   authStrategy: new LocalAuth(),
   puppeteer: {
     headless: true,
+    // এটি আপডেট করুন:
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/google-chrome-stable' || '/usr/bin/chromium',
     args: [
       "--no-sandbox",
       "--disable-setuid-sandbox",
@@ -283,8 +285,6 @@ client = new Client({
       "--single-process",
       "--no-zygote"
     ],
-    // এখানে পরিবর্তন করা হয়েছে:
-    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/chromium'
   },
 });
 
