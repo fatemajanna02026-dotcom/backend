@@ -1,12 +1,25 @@
+providers = ["node"]
+
 [phases.setup]
-nixPkgs = ["...", "chromium"]
-
-[phases.build]
-cmds = ["npm install"]
-
-[start]
-cmd = "node server.js"
-
-[variables]
-PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
-PUPPETEER_EXECUTABLE_PATH = "/usr/bin/chromium-browser"
+nixPkgs = [
+    "...", 
+    "chromium",
+    "glib", 
+    "nss", 
+    "nspr", 
+    "atk", 
+    "cups", 
+    "libdrm", 
+    "gtk3", 
+    "pango", 
+    "cairo", 
+    "mesa", 
+    "alsa-lib", 
+    "xorg.libX11", 
+    "xorg.libXcomposite", 
+    "xorg.libXdamage", 
+    "xorg.libXext", 
+    "xorg.libXfixes", 
+    "xorg.libXrandr", 
+    "xorg.libxcb"
+]
